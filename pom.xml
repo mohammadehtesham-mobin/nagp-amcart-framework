@@ -10,10 +10,14 @@
 
     <!-- Modules within the framework -->
     <modules>
-        <module>amCart-core</module>
-        <module>amCart-security</module>
-        <module>amCart-models</module>
-        <module>amCart-util</module>
+        <module>amcart-core</module>
+        <module>amcart-security</module>
+        <module>amcart-models</module>
+        <module>amcart-util</module>
+        <module>amcart-core</module>
+        <module>amcart-security</module>
+        <module>amcart-models</module>
+        <module>amcart-util</module>
     </modules>
 
     <!-- Shared dependency management -->
