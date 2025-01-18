@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Root group and artifact for the entire framework -->
+    <groupId>com.nagp</groupId>
+    <artifactId>amcart-framework</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <!-- Modules within the framework -->
+    <modules>
+        <module>amCart-core</module>
+        <module>amCart-security</module>
+        <module>amCart-models</module>
+        <module>amCart-util</module>
+    </modules>
+
+    <!-- Shared dependency management -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Example shared dependency -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>5.3.22</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
