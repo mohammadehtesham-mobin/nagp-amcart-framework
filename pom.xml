@@ -8,27 +8,70 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
+    <name>AmCart Framework</name>
+    <description>Common framework for AmCart microservices</description>
+
     <!-- Modules within the framework -->
     <modules>
         <module>amcart-core</module>
         <module>amcart-security</module>
         <module>amcart-models</module>
         <module>amcart-util</module>
-        <module>amcart-core</module>
-        <module>amcart-security</module>
-        <module>amcart-models</module>
-        <module>amcart-util</module>
     </modules>
 
-    <!-- Shared dependency management -->
     <dependencyManagement>
         <dependencies>
-            <!-- Example shared dependency -->
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>5.3.22</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>3.4.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.30</version>
+                <optional>true</optional>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <!-- Distribution Management for GitHub Packages -->
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/mohammadehtesham-mobin/nagp-amcart-framework</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/mohammadehtesham-mobin/nagp-amcart-framework</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+    </repositories>
+
+
 </project>
