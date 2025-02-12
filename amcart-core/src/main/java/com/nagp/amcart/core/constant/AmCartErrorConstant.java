@@ -1,4 +1,4 @@
-package constant;
+package com.nagp.amcart.core.constant;
 
 public class AmCartErrorConstant {
     private AmCartErrorConstant() {

@@ -1,4 +1,4 @@
-package model.exception;
+package com.nagp.amcart.core.model.exception;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -1,4 +1,4 @@
-package model.dto;
+package com.nagp.amcart.core.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
