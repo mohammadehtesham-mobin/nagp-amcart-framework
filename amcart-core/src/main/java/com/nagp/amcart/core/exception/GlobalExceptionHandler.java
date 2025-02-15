@@ -14,17 +14,28 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.nagp.amcart.core.constant.AmCartErrorConstant.ACCESS_DENIED;
+import static com.nagp.amcart.core.constant.AmCartErrorConstant.ACCESS_DENIED_MESSAGE;
+
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(AmCartException.class)
-    public ResponseEntity<AmCartErrorResponse> handleNoSuchElementException(AmCartException amCartException) {
+    public ResponseEntity<AmCartErrorResponse> handleAmCartException(AmCartException amCartException) {
         return buildAmCartErrorResponse(amCartException.getErrorCode(),
                 amCartException.getErrorMessage(),
                 amCartException.getHttpStatusCode(), null);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<AmCartErrorResponse> handleAccessDeniedException(Exception exception, WebRequest request) {
+        return buildAmCartErrorResponse(ACCESS_DENIED,
+                ACCESS_DENIED_MESSAGE,
+                HttpStatus.FORBIDDEN, null);
     }
 
     @Override
