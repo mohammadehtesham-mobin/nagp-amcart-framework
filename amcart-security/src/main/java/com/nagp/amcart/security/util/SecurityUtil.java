@@ -5,6 +5,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.core.Authentication;
 
+import java.util.UUID;
+
 import static com.nagp.amcart.security.constant.SecurityConstant.USERNAME;
 
 @UtilityClass
@@ -17,5 +19,20 @@ public class SecurityUtil {
         }
 
         return null;
+    }
+
+    public static UUID getUserId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.getPrincipal() instanceof Jwt jwt) {
+            String userName = jwt.getClaimAsString(USERNAME);
+            return stringToUUID(userName);
+        }
+
+        return null;
+    }
+
+    public static UUID stringToUUID(String uuidString) {
+        return UUID.fromString(uuidString);
     }
 }
