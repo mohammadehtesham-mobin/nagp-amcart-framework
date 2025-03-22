@@ -21,12 +21,11 @@ public class SecurityUtil {
         return null;
     }
 
-    public static UUID getUserId() {
+    public static String getUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication != null && authentication.getPrincipal() instanceof Jwt jwt) {
-            String userName = jwt.getClaimAsString(USERNAME);
-            return stringToUUID(userName);
+            return jwt.getClaimAsString(USERNAME);
         }
 
         return null;
